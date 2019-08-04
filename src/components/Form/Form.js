@@ -51,7 +51,8 @@ class Form extends Component {
   };
 
   render() {
-    if (!this.state.isValid) {
+    const { firstname, lastname, password, errors, isValid } = this.state;
+    if (!isValid) {
       return (
         <div className="app-container">
           <form className="form" onSubmit={this.validate}>
@@ -59,22 +60,22 @@ class Form extends Component {
             <Field
               fieldName="firstname"
               fieldTitle="Имя"
-              inputValue={this.state.firstname}
-              error={this.state.errors.firstname}
+              inputValue={firstname}
+              error={errors.firstname}
               onChange={this.onChange}
             />
             <Field
               fieldName="lastname"
               fieldTitle="Фамилия"
-              inputValue={this.state.lastname}
-              error={this.state.errors.lastname}
+              inputValue={lastname}
+              error={errors.lastname}
               onChange={this.onChange}
             />
             <Field
               fieldName="password"
               fieldTitle="Пароль"
-              inputValue={this.state.password}
-              error={this.state.errors.password}
+              inputValue={password}
+              error={errors.password}
               onChange={this.onChange}
             />
             <div className="form__buttons">
